@@ -8,7 +8,7 @@ the other machine can access target.
 tcp client can access target with tcp by tcptun running in middle.
 
 
-
+```
                                                +----------------+
                          X                     |                |
           +------------------------------->    |    target      | (192.168.1.101)
@@ -24,7 +24,7 @@ tcp client can access target with tcp by tcptun running in middle.
   |              |                    ip1:port1|                |
   +--------------+                             +----------------+
 
-
+```
 # how to use
 ./tcptun -l ":2022"  -t "192.168.1.101:80"
 
