@@ -1,11 +1,11 @@
-# tcptun
-a tcp tunnel to serve two host
+# tcprelay
+tcprelay help a tcp client to access the other host unreachable
 
 
 # aim
-client can not direct access  target machine,for some reason.
-the other machine can access target.
-tcp client can access target with tcp by tcptun running in middle.
+Client A can not direct access  target machine, for some reason.
+The other machine can access target.
+Tcp client can access target with tcp by tcprelay running in middle.
 
 
 ```
@@ -22,7 +22,7 @@ tcp client can access target with tcp by tcptun running in middle.
         |                                             |
         |                                             |
 +--------------+                             +----------------+
-|              |                      tcptun |                |
+|              |                    tcprelay |                |
 |  tcp client  | +-------------------------> |     middle     |
 |              |                    ip1:port1|                |
 +--------------+                             +----------------+
