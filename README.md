@@ -41,8 +41,18 @@ for the client just  type  http://192.168.1.100:2022   you can access the web se
 download this code.
 
 cd into the dir
+(on windows platform, compile linux version)
+```
+SET GOOS=linux
+SET GOARCH=amd64
+GOPROXY=https://goproxy.cn
+go build .
+```
+compile windows version 
+```
+go build .
+```
 
-go build .  
 
 
 # reference
