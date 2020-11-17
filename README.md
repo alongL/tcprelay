@@ -57,14 +57,18 @@ go build .
 ```
 
 
+# download 
+if you don't want to compile it. just download in release page. 
+It's very easy to use.
+
+
 
 # reference
 This program is get from this two repository. they are the hero.
 I do only the tcptun. 
 
 https://github.com/xtaci/kcptun 
-
-https://github.com/hikaricai/p2p_tun
+https://github.com/hikaricai/p2p_tun 
 
 
 
