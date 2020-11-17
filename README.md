@@ -32,7 +32,10 @@ Tcp client can access target with tcp by tcprelay running in middle.
 
 ```
 # how to run
-./tcptun -l ":2022"  -t "192.168.1.101:80"
+```
+./tcprelay -l ":2022"  -t "192.168.1.101:80"
+```
+it will listen on 2022, and all the client connected to :2022  will be relay to 192.168.1.101:80 
 
 for the client just  type  http://192.168.1.100:2022   you can access the web service on target machine.
 
