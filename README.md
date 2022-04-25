@@ -1,64 +1,62 @@
 # tcprelay
-tcprelay help a tcp client to access the other host unreachable
+tcprelay helps client accessing the host unreachable.
+For example:  
+- Virtual machine vm1 runing on server A, with NAT ip 192.168.122.101.  
+- Server A has public IP 1.2.3.4.  
+- Client can access server A, but can not access tcp port 80 of vm1 directly.  
+- With tcprelay running on server A.  
+- Client can access tcp port 80 of vm1 directly by 1.2.3.4:8080.  
 
 
-# aim
-Client A can not direct access  target machine, for some reason.
-The other machine can access target.
-Tcp client can access target with tcp by tcprelay running in middle.
-
+# Figure
+Client A can not direct access  target machine, for some reason firewall or NAT etc.  
+The other middle machine can access target.
+Tcp client can access target with tcp by tcprelay running on middle machine.
 
 ```
-
-
-                                                192.168.1.101
+                                                
                                              +----------------+
                        X                     |                |
-        +------------------------------->    |    target      |
+        +------------------------------->    |     target     |(vm1)
         |        can not access              |                |
         |                                    +----------------+
-        |                                             ^ ip2:port2
+        |                                             ^  192.168.122.101:80
         |                                             |
-        |                                             |
+        |                                             | tcprelay
         |                                             |
 +--------------+                             +----------------+
-|              |                    tcprelay |                |
-|  tcp client  | +-------------------------> |     middle     |
-|              |                    ip1:port1|                |
+|              |                             |                |
+|  tcp client  | +------------------------>+ |     middle     |(server A)
+|              |                1.2.3.4:8080 |                |
 +--------------+                             +----------------+
-                                                192.168.1.100
+                                                192.168.122.1
 
 
 
 ```
-# how to run
+# how to run 
+on server A, run tcprelay.  
 ```
-./tcprelay -l ":2022"  -t "192.168.1.101:80"
+./tcprelay -l ":8080"  -t "192.168.122.101:80"
 ```
-it will listen on 2022, and all the client connected to :2022  will be relay to 192.168.1.101:80 
+It will listen on 8080, and all the client connected to :8080  will be relay to 192.168.1.101:80 
 
-for the client just  type  http://192.168.1.100:2022   you can access the web service on target machine.
+For the client, just  type  http://1.2.3.4:8080   you can access the web service on target machine.
 
 
-# how to build 
-download this code.
-
-cd into the dir
-(on windows platform, compile linux version)
+# how to build  
+download this code, cd into the dir.
+type command as follows:  
 ```
 SET GOOS=linux
 SET GOARCH=amd64
-GOPROXY=https://goproxy.cn
-go build .
-```
-compile windows version 
-```
+SET GOPROXY=https://goproxy.cn
 go build .
 ```
 
 
 # download 
-if you don't want to compile it. just download in release page. 
+if you don't want to compile it. just download in release page.  
 It's very easy to use.
 
 
