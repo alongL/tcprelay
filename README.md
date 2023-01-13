@@ -1,11 +1,11 @@
 # tcprelay
 tcprelay helps client accessing the host unreachable.
 For example:  
-- Virtual machine vm1 runing on server A, with NAT ip 192.168.122.101.  
-- Server A has public IP 1.2.3.4.  
+- Virtual machine vm1 runing on server A, with NAT ip 192.168.122.*.  
+- Server A has public IP 192.168.1.10.  
 - Client can access server A, but can not access tcp port 80 of vm1 directly.  
 - With tcprelay running on server A.  
-- Client can access tcp port 80 of vm1 directly by 1.2.3.4:8080.  
+- Client can access tcp port 80 of vm1 directly by 192.168.1.10:8080.  
 
 
 # Figure
@@ -14,24 +14,20 @@ The other middle machine can access target.
 Tcp client can access target with tcp by tcprelay running on middle machine.
 
 ```
-                                                
                                              +----------------+
-                       X                     |                |
+                                             |                |
         +------------------------------->    |     target     |(vm1)
-        |        can not access              |                |
+        |     can not direct access          |                |
         |                                    +----------------+
-        |                                             ^  192.168.122.101:80
+        |                                             ^  192.168.122.*:80
         |                                             |
-        |                                             | tcprelay
-        |                                             |
+        |                                             | 
+        |                                             |  192.168.122.1
 +--------------+                             +----------------+
-|              |                             |                |
-|  tcp client  | +------------------------>+ |     middle     |(server A)
-|              |                1.2.3.4:8080 |                |
+|              | 192.168.1.20                |                |
+|     client   | +------------------------>  |     server A   |(tcprelay)
+|              |           192.168.1.10:8080 |                |
 +--------------+                             +----------------+
-                                                192.168.122.1
-
-
 
 ```
 # how to run 
