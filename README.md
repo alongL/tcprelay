@@ -60,9 +60,18 @@ It's very easy to use.
 # reference
 This program is taken from this two repository. they are the hero.
 
-https://github.com/xtaci/kcptun 
+https://github.com/xtaci/kcptun  
+https://github.com/hikaricai/p2p_tun  
 
-https://github.com/hikaricai/p2p_tun 
+
+
+# gost powerful another port mapping tool
+
+https://github.com/ginuerzh/gost  
+```
+./gost -L  tcp://:8080/192.168.122.101:80  
+```
+
 
 
 
