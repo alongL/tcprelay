@@ -1,4 +1,4 @@
-module github.com/alongL/revProxy
+module github.com/alongL/tcprelay
 
 require (
 	github.com/urfave/cli v1.21.0
