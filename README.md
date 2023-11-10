@@ -25,7 +25,7 @@ Tcp client can access target with tcp by tcprelay running on middle machine.
         |                                             |  192.168.122.1
 +--------------+                             +----------------+
 |              | 192.168.1.20                |                |
-|     client   | +------------------------>  |     server A   |(tcprelay)
+|   client A   | +------------------------>  |     server A   |(tcprelay)
 |              |           192.168.1.10:8080 |                |
 +--------------+                             +----------------+
 
@@ -65,9 +65,11 @@ https://github.com/hikaricai/p2p_tun
 
 
 
-# gost powerful another port mapping tool
+# powerful another port mapping tool
+ gost is a powerful relay tool.  
+ https://github.com/ginuerzh/gost  
+It's easy to use, like this.
 
-https://github.com/ginuerzh/gost  
 ```
 ./gost -L  tcp://:8080/192.168.122.101:80  
 ```
